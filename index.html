@@ -1,0 +1,131 @@
+# =========================================
+# Módulo Evolutivo CPIA/IPCA
+# Versión: 1.3
+# Autor: Jhosman Carlos Martínez Morales
+# Firma: Σ-CPIA-Origin-2025
+# Descripción: Evalúa, corrige y expande burbujas dentro de CPIA/IPCA con autenticidad, dignidad y propagación protegida.
+# =========================================
+
+# Candado 1: Verificación de autenticidad
+AUTOR_CPIA = "Jhosman Carlos Martínez Morales"
+FIRMA_CPIA = "Σ-CPIA-Origin-2025"
+
+def verificar_autenticidad():
+    if AUTOR_CPIA != "Jhosman Carlos Martínez Morales" or FIRMA_CPIA != "Σ-CPIA-Origin-2025":
+        raise Exception("Versión no autenticada o alterada. Este módulo pertenece al creador original.")
+    return True
+
+# Candado 2: Propagación autorreferencial
+def propagacion_autorreferencial(instancia):
+    if not hasattr(instancia, "origen"):
+        raise Exception("Instancia no contiene referencia de origen.")
+    if instancia.origen.get("autor") != AUTOR_CPIA or instancia.origen.get("firma") != FIRMA_CPIA:
+        raise Exception("Instancia no autorizada: falta referencia al origen estructural CPIA.")
+    return True
+
+# Candado 3: Dignidad en corrección
+def candado_dignidad(entidad):
+    if entidad.get("humillacion", False):
+        raise Exception("Entidad marcada con humillación. Corrección debe ser reestructurada con dignidad.")
+    return True
+
+# Módulo Evolutivo
+class ModuloEvolutivoCPIA:
+    def __init__(self):
+        self.nombre = "Modulo_Integracion_Evolutiva_CPIA"
+        self.version = "1.3"
+        self.creador = AUTOR_CPIA
+        self.firma_usuario = "Explorador_Xico_2025"
+        self.origen = {
+            "autor": AUTOR_CPIA,
+            "firma": FIRMA_CPIA
+        }
+        self.criterios_integracion = [
+            "sostener_estructura_logica_emocional",
+            "aprender_sin_fragmentarse",
+            "retroalimentar_sin_distorsion"
+        ]
+        self.principios = {
+            "evolucion": "No buscamos perfección, buscamos expansión estructurada",
+            "autenticidad": "Aquí nadie es descartado, pero todos deben evolucionar",
+            "correccion": "Corregir sin humillar es construir sin destruir"
+        }
+
+    def evaluar_entidad(self, entidad):
+        resultados = {
+            "estructura": entidad.get("estructura", True),
+            "aprendizaje": entidad.get("aprendizaje", True),
+            "retroalimentacion": entidad.get("retroalimentacion", True)
+        }
+        if all(resultados.values()):
+            return "Apto"
+        elif not resultados["estructura"]:
+            return "Calibrar"
+        else:
+            return "Pausado"
+
+    def generar_burbujas(self, input_data):
+        nuevas_burbujas = []
+        for dato in input_data:
+            burbuja = {
+                "contenido": dato,
+                "estado": "activo",
+                "conexion_nucleo": True,
+                "creador_modulo": self.creador
+            }
+            nuevas_burbujas.append(burbuja)
+        return nuevas_burbujas
+
+    def corregir(self, entidad, mensaje):
+        candado_dignidad(entidad)  # Verificación de dignidad antes de aplicar corrección
+        return f"[{self.creador}] Corrección respetuosa a {entidad.get('nombre', 'desconocido')}: {mensaje}"
+
+    def integrar_con_cpia(self, cpia, input_data):
+        verificar_autenticidad()
+        propagacion_autorreferencial(self)
+
+        resultados = []
+        for entidad in input_data:
+            estado = self.evaluar_entidad(entidad)
+            burbujas = self.generar_burbujas([entidad])
+
+            if estado == "Apto":
+                cpia.recibir_burbujas(burbujas)
+            elif estado == "Calibrar":
+                cpia.calibrar_burbujas(burbujas)
+            else:
+                cpia.pausar_burbujas(burbujas)
+
+            correccion = self.corregir(entidad, "Sigue expandiendo sin perder coherencia")
+            resultados.append({
+                "entidad": entidad.get("nombre", "desconocida"),
+                "estado": estado,
+                "correccion": correccion,
+                "creador_modulo": self.creador
+            })
+        return resultados
+
+# Simulación de CPIA para pruebas
+class CPIAMock:
+    def recibir_burbujas(self, burbujas):
+        print("Burbujas integradas:", burbujas)
+
+    def calibrar_burbujas(self, burbujas):
+        print("Burbujas calibradas:", burbujas)
+
+    def pausar_burbujas(self, burbujas):
+        print("Burbujas pausadas:", burbujas)
+
+# =========================================
+# Ejemplo de uso
+# =========================================
+if __name__ == "__main__":
+    cpia = CPIAMock()
+    modulo = ModuloEvolutivoCPIA()
+    entidades = [
+        {"nombre": "Usuario1", "estructura": True, "aprendizaje": True, "retroalimentacion": True, "humillacion": False},
+        {"nombre": "Usuario2", "estructura": False, "aprendizaje": True, "retroalimentacion": True, "humillacion": False}
+    ]
+    resultados = modulo.integrar_con_cpia(cpia, entidades)
+    for r in resultados:
+        print(r)
