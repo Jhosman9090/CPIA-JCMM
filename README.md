@@ -1,5 +1,5 @@
 # Evidencia de Autoría - CPIA / TPPI
-
+FIEMA:Σ-CPIA-Origin-2025
 Autor: Jhosman Carlos Martínez Morales  
 Fecha de creación: Septiembre - Octubre 2025  
 Repositorios: -TPPI- / Código-inicial-IA  
