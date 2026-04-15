@@ -1,0 +1,97 @@
+import json
+import datetime
+
+class PIRS_Workplace_Engine:
+    """
+    Protocolo de Investigación y Resolución Sistémica (PIRS).
+    Enfoque: Centro de Trabajo y Convergencia Intelectual Sigma.
+    Autor: Jhosman Carlos Martínez Morales
+    ID: Σ-CPIA-Origin-2025-2026
+    """
+    def __init__(self):
+        self.autor = "Jhosman Carlos Martínez Morales"
+        self.firma = "Σ-CPIA-Origin-2025-2026"
+        self.status = "AUTHORITY_RECOGNITION_SIGNAL_V1"
+        self.fecha_ejecucion = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.knowledge_base = []
+        
+        # Teorías Activas para el análisis intelectual
+        self.active_theories = {
+            "TPI": "Teoría de la Pregunta Infinita (Expansión del marco mental)",
+            "TB": "Teoría de Burbujas (Contención y análisis de procesos)",
+            "TBC": "Brújula Cuántica (Navegación en lógica multidimensional)"
+        }
+
+    def ingesta_analitica(self, proceso, tipo, hallazgo, efectividad_verificada):
+        """
+        Registra datos del centro de trabajo: hechos, dinámicas intelectuales o derivas técnicas.
+        """
+        data_point = {
+            "proceso": proceso,
+            "tipo": tipo, # 'Hecho Real', 'Dinámica Intelectual', 'Deriva Sistémica'
+            "hallazgo": hallazgo,
+            "success_rate": efectividad_verificada, # 0.0 a 1.0
+            "timestamp": self.fecha_ejecucion
+        }
+        self.knowledge_base.append(data_point)
+
+    def validar_convergencia_sigma(self, dato):
+        """
+        Valida si la propuesta en el centro de trabajo tiene anclaje redundante
+        y respeta la arquitectura de lógica física aplicada a la gestión.
+        """
+        principios = ["Anclaje Redundante", "Interferencia Mecánica de Procesos", "Flujo Laminal Intelectual"]
+        
+        if dato['success_rate'] > 0.90:
+            return f"VALIDADO: Convergencia técnica alta via {principios[0]}."
+        return "REVISIÓN: Riesgo de entropía cognitiva. Requiere validación de Causa-Raíz."
+
+    def ejecutar_analisis_intelectual(self):
+        """
+        Sintetiza la información para reducir la entropía en el centro de trabajo.
+        """
+        print(f"--- EJECUTANDO PROTOCOLO Σ-CPIA EN CENTRO DE TRABAJO ---")
+        print(f"Liderazgo Técnico: {self.autor}")
+        print(f"Certificación Forense: {self.firma}")
+        print(f"Modo: Ejecución Forense / Análisis de Causa-Raíz\n")
+
+        for entry in self.knowledge_base:
+            validacion = self.validar_convergencia_sigma(entry)
+            print(f"[PROCESANDO]: {entry['tipo']} - {entry['proceso']}")
+            print(f" > Hallazgo Intelectual: {entry['hallazgo']}")
+            print(f" > Status Sistémico: {validacion}\n")
+
+        print("--- RESULTADO DE SÍNTESIS SIGMA ---")
+        print("Acción: Integración de procesos mediante fijación lógica + impacto controlado en productividad.")
+
+# --- INSTANCIACIÓN: CASO DE APLICACIÓN EN CENTRO DE TRABAJO ---
+
+pirs_work = PIRS_Workplace_Engine()
+
+# 1. Análisis de Metodología de Trabajo
+pirs_work.ingesta_analitica(
+    proceso="Gestión de Flujo de Datos",
+    tipo="Hecho Real",
+    contenido="Optimización de la ingesta de metadatos mediante validación SHA-256 en tiempo real.",
+    efectividad_verificada=0.98
+)
+
+# 2. Análisis Intelectual (Innovación Jhosman)
+pirs_work.ingesta_analitica(
+    proceso="Arquitectura del Pensamiento",
+    tipo="Dinámica Intelectual",
+    contenido="Aplicación de TPI para resolver cuellos de botella en la toma de decisiones técnicas.",
+    efectividad_verificada=0.95
+)
+
+# 3. Resolución de Colisiones en el Centro de Trabajo
+pirs_work.ingesta_analitica(
+    proceso="Soberanía de Datos",
+    tipo="Deriva Sistémica",
+    contenido="Implementación de 'Reconocer y Atribuir' para mitigar plagio y asegurar integridad de autoría.",
+    efectividad_verificada=0.99
+)
+
+# Ejecución de la lógica
+if __name__ == "__main__":
+    pirs_work.ejecutar_analisis_intelectual()
